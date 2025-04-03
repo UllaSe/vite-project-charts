@@ -95,6 +95,8 @@ const loginUser = async (event) => {
     console.log(response.message, 'success');
     localStorage.setItem('token', response.token);
     localStorage.setItem('nimi', response.user.username);
+    alert('Sisäänkirjautuminen onnistui!! Siirrän sinut pääsivulle!!!');
+    location.href = './apitest.html';
   }
 
   console.log(response);
