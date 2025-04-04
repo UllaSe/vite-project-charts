@@ -94,9 +94,9 @@ const loginUser = async (event) => {
   if (response.message) {
     console.log(response.message, 'success');
     localStorage.setItem('token', response.token);
-    localStorage.setItem('nimi', response.user.username);
+    localStorage.setItem('nimi', response.user.given_name);
     alert('Sisäänkirjautuminen onnistui!! Siirrän sinut pääsivulle!!!');
-    location.href = './apitest.html';
+    location.href = './kubios.html';
   }
 
   console.log(response);
