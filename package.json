@@ -15,8 +15,12 @@
     "@amcharts/amcharts5": "^5.11.2",
     "@amcharts/amcharts5-fonts": "^5.0.1",
     "@amcharts/amcharts5-geodata": "^5.1.4",
+    "@fullcalendar/core": "^6.1.17",
+    "@fullcalendar/daygrid": "^6.1.17",
+    "@fullcalendar/interaction": "^6.1.17",
     "chart.js": "^4.4.8",
     "chartjs-adapter-date-fns": "^3.0.0",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "fullcalendar": "^6.1.17"
   }
 }
