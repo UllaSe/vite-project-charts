@@ -38,31 +38,83 @@ const getUserData = async () => {
 		console.log('Käyttäjän tietojen haku Kubioksesta epäonnistui');
 		return;
 	}
-	console.log(userData);
+	//console.log(userData);
+
 	// Draw chart with chart.js
-	// drawChart(userData);
+	drawChart(userData);
 	// Draw chart with amcharts
 	// drawAMChart(userData);
 };
 
 // Let us try these together
-const drawChart = (userData) => {
+const drawChart = async (userData) => {
 	// Now the data that comes from kubios /result/self route
 	console.log('UserData:', userData);
 
+	const url = '/mockdata.json';
+	const response = await fetchData(url);
 	// You need to formulate data into correct structure in the BE
 	// OR you can extract the data here in FE from one or multiple sources
 	// Extract data: https://www.w3schools.com/jsref/jsref_map.asp
 
 	// Labels
 
-	// Line 1
+	const formatter = new Intl.DateTimeFormat('fi-FI', { day: 'numeric', month: 'long' });
+	const labels = response.results.map((rivi) => formatter.format(new Date(rivi.daily_result)));
 
+	// Ilman formulointia
+	//const labels = userData.results.map((rivi) => rivi.daily_result);
+
+	// Line 1
+	const readiness = response.results.map((rivi) => rivi.result.readiness);
 	// Line 2
+	const stressIndex = response.results.map((rivi) => rivi.result.stress_index);
 
 	// Create the chart
 	// https://www.chartjs.org/docs/latest/charts/line.html
 	// https://www.chartjs.org/docs/latest/samples/line/line.html
+
+	const ctx = document.getElementById('jsChart');
+
+	new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: labels,
+			datasets: [
+				{
+					label: 'readiness',
+					data: readiness,
+					borderWidth: 1,
+					borderColor: 'red',
+				},
+				{
+					label: 'stress index',
+					data: stressIndex,
+					borderWidth: 1,
+					borderColor: 'blue',
+				},
+			],
+		},
+		options: {
+			responsive: true,
+			locale: 'fi-FI',
+			scales: {
+				x: {
+					title: {
+						display: true,
+						text: 'Day',
+					},
+				},
+				y: {
+					beginAtZero: true,
+					title: {
+						display: true,
+						text: 'Readiness / Stress',
+					},
+				},
+			},
+		},
+	});
 
 	// Add necessary adapters
 	// https://github.com/chartjs/awesome#adapters
