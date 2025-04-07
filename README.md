@@ -1,3 +1,5 @@
+GRAAFI ja KALENTERIESIMERKIT
+
 Varmista ensin että sinulla on järkevä hakemistorakenne sovelluksessasi. Alla näet yleisen rakenteen monisivuiselle web-projektille. Sinulla voi olla toisenkinlainen rakenne, kunhan saat järkevästi julkaistua projektisi dist kansioon ja polut toimivat.
 
 Julkaisua sekä testaamista varten löydät vite-demoprojektin täältä. Mikäli olet epävarma omasta sovelluksesi toiminnasta, asenna tämä demoprojekti testausta varten. Katso myös miten tiedostoissa on viitattu erilaisiin tiedostojen relatiivisiin polkuihin.
