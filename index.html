@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./about.html">About</a></li>
-      </ul>
-    </nav>
-    <h2>Index / Kotisivu</h2>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+	</head>
 
-    LOGIN
-    <ul>
-      <li>
-        <a href="./src/pages/apitest.html" target="_blank"
-          >Linkki APItesteihin</a
-        >
-      </li>
-      <li>
-        <a href="./src/pages/authtest.html" target="_blank">Linkki Auth</a>
-      </li>
-    </ul>
+	<body>
+		<h3>LOGIN with Kubios account</h3>
+		<pre><code>
+      # Login
+      POST http://localhost:3000/api/auth/login
+      content-type: application/json
 
-    <script type="module" src="/src/js/index.js"></script>
-  </body>
+      {
+        "username": "user",
+        "password": "secret"
+      }
+      </code></pre>
+		<div>
+			<form class="loginForm">
+				<label for="username">Username</label>
+				<input
+					type="text"
+					name="username"
+					placeholder="ulla.sederlof@metropolia.fi"
+					value="ulla.sederlof@metropolia.fi"
+				/>
+				<label for="password">Password</label>
+				<input type="password" name="password" placeholder="Testing1234" value="Testing1234" />
+				<input name="submit" type="submit" value="Login and get new token" class="loginform" />
+			</form>
+		</div>
+	</body>
+
+	<script type="module" src="/src/js/auth.js"></script>
 </html>

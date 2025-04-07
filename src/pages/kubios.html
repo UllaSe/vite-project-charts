@@ -7,10 +7,40 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+
+    <nav>
+			<ul>
+				<li><a href="./kubios.html">Kubios</a></li>
+				<li><a href="./calendar.html">Calendar</a></li>
+			</ul>
+      <div id="app"></div>
+		</nav>
 
     <main>
-      <h2>KUBIOS harjoittelusivu</h2>
+      <h2>KUBIOS training
+      </h2>
+
+      <h3>Use charts to display data</h3>
+
+      <h4>chart.js</h4>
+
+      <a href="https://www.chartjs.org/">chart.js official page</a>
+
+      <p>Chart.js is an open-source JavaScript library that allows you to create charts and graphs using the HTML5 Canvas element. It is lightweight, easy to use, and highly customizable. Features:</p>
+
+      <ul>
+        <li>Supports common chart types (bar, line, pie charts, etc.)</li>
+        <li>Animated and interactive charts</li>
+        <li>Customizable colors, axes, and tooltips</li>
+        <li>Works with Vanilla JS without additional dependencies</li>
+        <li>Easy integration with Vite.js and other frontend frameworks</li>
+      </ul>
+
+        <div>https://github.com/chartjs/awesome#adapters</div>
+
+        <div>
+          <canvas id="myChart" style="max-width: 500px;"></canvas>
+        </div>
 
       <h3>Get Kubios User INFO</h3>
 
@@ -23,35 +53,12 @@
       <button class="get_user_data">Get user data</button>
 
       <div>
-        <canvas id="heartRateChart" style="max-width: 500px;margin-top: 30px;"></canvas>
+        <canvas id="jsChart" style="max-width: 500px;margin-top: 30px;"></canvas>
       </div>
 
       <div>
         <div id="chartdiv" style="max-width: 500px;margin-top: 30px;"></div>
       </div>
-
-      <h3>Use charts to display data</h3>
-
-      <h4>chart.js</h4>
-
-      <a href="https://www.chartjs.org/">chart.js virallinen sivu</a>
-
-      <p>Chart.js on avoimen lähdekoodin JavaScript-kirjasto, joka mahdollistaa kaavioiden ja graafien luomisen HTML5-Canvas-elementin avulla. Se on kevyt, helppokäyttöinen ja erittäin mukautettava. Ominaisuudet:</p>
-
-        <ul>
-          <li>Tukee yleisimpiä kaaviotyyppejä (pylväs-, viiva-, ympyräkaavio jne.)</li>
-          <li>Animoidut ja interaktiiviset kaaviot</li>
-          <li>Mukautettavat värit, akselit ja työkaluvihjeet</li>
-          <li>Toimii Vanilla JS:n kanssa ilman lisäriippuvuuksia</li>
-          <li>Helppo integrointi Vite.js- ja muihin frontend-kehyksiin</li>
-        </ul>
-
-        <div>https://github.com/chartjs/awesome#adapters</div>
-
-        <div>
-          <canvas id="myChart" style="max-width: 500px;"></canvas>
-        </div>
-
 
     <script type="module" src="/src/js/kubios.js"></script>
 
