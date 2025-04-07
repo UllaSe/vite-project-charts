@@ -65,3 +65,77 @@ calendar.init();
 
 // https://fullcalendar.io/docs/initialize-globals
 // https://fullcalendar.io/docs/initialize-globals-demo
+
+document.addEventListener('DOMContentLoaded', function () {
+	var calendarEl = document.getElementById('calendar2');
+
+	var calendar = new FullCalendar.Calendar(calendarEl, {
+		initialView: 'dayGridMonth',
+		headerToolbar: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'dayGridMonth,timeGridWeek,timeGridDay',
+		},
+		events: [
+			{
+				title: 'Readiness: 82',
+				start: '2025-04-10',
+				color: '#4CAF50', // green
+				extendedProps: {
+					measure_id: 'e7dbb65e-0f6c-48c8-94af-07d7205d5602',
+				},
+			},
+			{
+				title: 'Stress: 45',
+				start: '2025-04-10',
+				color: '#F44336', // red
+			},
+			{
+				title: 'Readiness: 75',
+				start: '2025-04-11',
+				color: '#4CAF50',
+			},
+			{
+				title: 'Stress: 60',
+				start: '2025-04-11',
+				color: '#F44336',
+			},
+			{
+				title: 'Work',
+				start: '2025-04-08T12:00:00',
+				end: '2025-04-12T12:00:00',
+				color: '#36f4be',
+				extendedProps: {
+					shift_id: '86654444',
+				},
+			},
+		],
+		eventClick: function (info) {
+			const event = info.event;
+			//console.log(event);
+			const props = event.extendedProps;
+			console.log(props);
+			console.log('Avataan vaikkapa uusi dialogi ja ID:n mukainen haku BE');
+		},
+		eventContent: function (info) {
+			const { event } = info;
+			const title = event.title;
+
+			// Simple emoji logic
+			const isReadiness = title.toLowerCase().includes('readiness');
+			const isStress = title.toLowerCase().includes('stress');
+
+			const emoji = isReadiness ? '💪' : isStress ? '⚡' : '📝';
+
+			return {
+				html: `
+          <div style="font-size: 11px; line-height: 1.2;">
+            ${emoji} ${title}
+          </div>
+        `,
+			};
+		},
+	});
+
+	calendar.render();
+});
